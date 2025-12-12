@@ -1,9 +1,11 @@
 import BD
-# import info_user
+import info_user
 
 nb_tentatives = 5
 
 def login():
+    
+    global nb_tentatives
 
     #Instaurer une limite de tentatives
     if nb_tentatives == 0:
@@ -11,13 +13,13 @@ def login():
         return False
     
     #Recuperer infos user
-    # infos = info_user.demander_infos()
-    infos = {"pseudonyme": "bb@bb.com", "email": "bb@bb.com", "mot_de_passe": "maoma"}
+    infos = info_user.DemandeInfo()
+    # infos = {"pseudonyme": "bb@bb.com", "email": "bb@bb.com", "mot_de_passe": "maoma"}
     print(infos)
 
     #Chercher si l'utilisateur existe    
     for user in BD.BD_sys_auth:
-        if infos['pseudonyme'] == user['pseudonyme'] or infos['email'] == user['email']:
+        if infos['pseudonyme'] == user['pseudonyme'] and infos['email'] == user['email']:
             user_infos = user
             print("Utilisateur trouvé :", user_infos)
             break
@@ -26,7 +28,7 @@ def login():
         return False
             
     #Tester si le mot de passe est bon
-    if infos["mot_de_passe"] == user_infos['pwd']:
+    if infos["mot_de_passe"] == user_infos["mot_de_passe"]:
         print("Connexion réussie !")
         return True 
     else:
@@ -34,4 +36,3 @@ def login():
         nb_tentatives -= 1
         return False
 
-print(login())
