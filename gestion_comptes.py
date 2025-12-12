@@ -1,6 +1,6 @@
 #-Faire une fonction creer_compte OK!
 # -Faire une fonction reset_mdp OK!
-# -Faire une fonction delete_compte
+# -Faire une fonction delete_compte 
 # -Utiliser la fonction infos_user.demander_infos()
 
 import BD
@@ -51,4 +51,18 @@ def reset_mdp():
 
 
 def delete_compte():
-    pass
+    #chercher un compte avec son nom d'user, si le compte existe, effacer son index.
+    compte_a_supprimer = input("Entrez le nom d'utilisateur du compte à supprimer: ")
+    for i in range(len(BD.BD_sys_auth)):
+        if BD.BD_sys_auth[i]["username"] == compte_a_supprimer:
+            del BD.BD_sys_auth[i]
+            print("Le compte \"bleeband@gmail.com\" a été effacé!")
+            break
+    else:
+        print("Ce compte n'existe pas, aucun compte effacé.")
+
+#-----test de la fonction delete_compte
+# delete_compte()
+# print(BD.BD_sys_auth)
+
+        
