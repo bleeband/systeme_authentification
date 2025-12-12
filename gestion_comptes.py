@@ -54,9 +54,9 @@ def delete_compte():
     #chercher un compte avec son nom d'user, si le compte existe, effacer son index.
     compte_a_supprimer = input("Entrez le nom d'utilisateur du compte à supprimer: ")
     for i in range(len(BD.BD_sys_auth)):
-        if BD.BD_sys_auth[i]["username"] == compte_a_supprimer:
+        if BD.BD_sys_auth[i]["pseudonyme"] == compte_a_supprimer:
             del BD.BD_sys_auth[i]
-            print("Le compte \"bleeband@gmail.com\" a été effacé!")
+            print(f"Le compte \"{compte_a_supprimer}\" a été effacé!")
             break
     else:
         print("Ce compte n'existe pas, aucun compte effacé.")
