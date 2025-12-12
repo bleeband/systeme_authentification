@@ -14,14 +14,11 @@ def login():
     
     #Recuperer infos user
     infos = info_user.DemandeInfo()
-    # infos = {"pseudonyme": "bb@bb.com", "email": "bb@bb.com", "mot_de_passe": "maoma"}
-    print(infos)
 
     #Chercher si l'utilisateur existe    
     for user in BD.BD_sys_auth:
         if infos['pseudonyme'] == user['pseudonyme'] and infos['email'] == user['email']:
             user_infos = user
-            print("Utilisateur trouvé :", user_infos)
             break
     else: 
         print("Aucun utilisateur trouvé avec ces informations.")
