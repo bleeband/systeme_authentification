@@ -7,4 +7,4 @@ def DemandeInfo():
  
     return {"pseudonyme": pseudonyme, "email": email, "mot_de_passe": mot_de_passe}
 
-DemandeInfo()
+# DemandeInfo()
