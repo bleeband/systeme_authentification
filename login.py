@@ -3,8 +3,24 @@ import info_user
 
 nb_tentatives = 5
 
-def login():
-    
+def login() -> bool:
+  
+    """
+    Tente d'authentifier un utilisateur.
+
+    Comportement :
+    - Demande les informations de connexion via `info_user.DemandeInfo()`.
+    - Recherche l'utilisateur dans `BD.BD_sys_auth`.
+    - Vérifie le mot de passe fourni.
+    - Décrémente `nb_tentatives` en cas d'échec et bloque après épuisement.
+
+    Affichage :
+    Cette fonction utilise `print()` pour indiquer son état (console).
+
+    Returns:
+        bool: `True` si la connexion réussit, `False` sinon.
+    """
+
     global nb_tentatives
 
     #Instaurer une limite de tentatives
