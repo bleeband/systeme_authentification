@@ -1,7 +1,7 @@
-import BD
+import bd
 import info_user
 
-nb_tentatives = 5
+
 
 def login() -> bool:
   
@@ -10,7 +10,7 @@ def login() -> bool:
 
     Comportement :
     - Demande les informations de connexion via `info_user.DemandeInfo()`.
-    - Recherche l'utilisateur dans `BD.BD_sys_auth`.
+    - Recherche l'utilisateur dans `bd.bd_sys_auth`.
     - Vérifie le mot de passe fourni.
     - Décrémente `nb_tentatives` en cas d'échec et bloque après épuisement.
 
@@ -21,31 +21,32 @@ def login() -> bool:
         bool: `True` si la connexion réussit, `False` sinon.
     """
 
-    global nb_tentatives
+    nb_tentatives = 5
 
     #Instaurer une limite de tentatives
-    if nb_tentatives == 0:
-        print("Nombre de tentatives dépassé. Veuillez réessayer plus tard.")
-        return False
-    
-    #Recuperer infos user
-    pseudonyme, email, mot_de_passe = info_user.DemandeInfo()               #-DemandeInfo() retourne des variables au lieu d'un dictionnaire, changé en conséquences dans login() MG
+    while True:
+        if nb_tentatives == 0:
+            print("Nombre de tentatives dépassé. Veuillez réessayer plus tard.")
+            return False
+        
+        #Recuperer infos user
+        pseudonyme, email, mot_de_passe = info_user.DemandeInfo()               #-DemandeInfo() retourne des variables au lieu d'un dictionnaire, changé en conséquences dans login() MG
 
-    #Chercher si l'utilisateur existe    
-    for user in BD.BD_sys_auth:
-        if pseudonyme == user['pseudonyme'] and email == user['email']:     #-Changé infos["user"] et ["email"] par les variables. MG
-            user_infos = user
-            break
-    else: 
-        print("Aucun utilisateur trouvé avec ces informations.")
-        return False
-            
-    #Tester si le mot de passe est bon
-    if mot_de_passe == user_infos["mot_de_passe"]:                          #-Changé infos["mpt_de_passe"] par la variable. MG
-        print("Connexion réussie !")
-        return True 
-    else:
-        print("Mot de passe incorrect.")
-        nb_tentatives -= 1
-        return False
+        #Chercher si l'utilisateur existe    
+        for user in bd.bd_sys_auth:
+            if pseudonyme == user['pseudonyme'] and email == user['email']:     #-Changé infos["user"] et ["email"] par les variables. MG
+                user_infos = user
+                break
+        else: 
+            print("Aucun utilisateur trouvé avec ces informations.")
+            return False
+                
+        #Tester si le mot de passe est bon
+        if mot_de_passe == user_infos["mot_de_passe"]:                          #-Changé infos["mpt_de_passe"] par la variable. MG
+            print("Connexion réussie !")
+            return True 
+        else:
+            nb_tentatives -= 1
+            print(f"Mot de passe incorrect. {nb_tentatives} essais restants.")
+            continue
 

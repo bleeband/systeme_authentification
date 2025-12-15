@@ -1,4 +1,4 @@
-import BD
+import bd
 import info_user
 
 #création d'un compte
@@ -8,24 +8,24 @@ def creer_compte():
     nom = "Tremblay"                                                                #en attendant qu'on demande l'info dans info_user MG
     return pseudonyme, email, mot_de_passe, prenom, nom
 
-def ajout_compte_BD():
+def ajout_compte_bd():
     pseudonyme, email, mot_de_passe, prenom, nom = creer_compte()   
-    BD.BD_sys_auth.append({f"nom": nom, "prenom": prenom, "email": email, "pseudonyme": pseudonyme, "mot_de_passe": mot_de_passe})  #retrait des {} MAD
+    bd.bd_sys_auth.append({f"nom": nom, "prenom": prenom, "email": email, "pseudonyme": pseudonyme, "mot_de_passe": mot_de_passe})  #retrait des {} MAD
 
 
-# #----test creer_compte et ajouteur_compte_BD:
-# ajout_compte_BD()
-# # print(BD.BD_sys_auth)
+# #----test creer_compte et ajouteur_compte_bd:
+# ajout_compte_bd()
+# # print(bd.bd_sys_auth)
 
 
-# #-----test des valeurs après creer_compte, affiche le dernier élément ajouté à la liste de la BD.
-# print(BD.BD_sys_auth.pop())
+# #-----test des valeurs après creer_compte, affiche le dernier élément ajouté à la liste de la bd.
+# print(bd.bd_sys_auth.pop())
 
 def reset_mdp():
     compte_a_reinitialiser = input("Entrez le nom d'utilisateur du compte à réinitialiser: ")
     
     #si un compte existe avec le nom spécifié, on remplace son mdp par le nouveau mdp spécifié
-    for compte in BD.BD_sys_auth:
+    for compte in bd.bd_sys_auth:
         if compte_a_reinitialiser == compte["pseudonyme"]:
             while True:
                 nouveau_mot_de_passe = input("Entrez un nouveau mot de passe: ")            #deplacer le input apres avoir verifier si le compte existe  MAD
@@ -40,15 +40,15 @@ def reset_mdp():
 
 # #-----test de la fonction reset_mdp
 # reset_mdp()
-# print(BD.BD_sys_auth)
+# print(bd.bd_sys_auth)
 
 
 def delete_compte():
     #chercher un compte avec son nom d'user, si le compte existe, effacer son index.
     compte_a_supprimer = input("Entrez le nom d'utilisateur du compte à supprimer: ")
-    for i in range(len(BD.BD_sys_auth)):
-        if BD.BD_sys_auth[i]["pseudonyme"] == compte_a_supprimer:
-            del BD.BD_sys_auth[i]
+    for i in range(len(bd.bd_sys_auth)):
+        if bd.bd_sys_auth[i]["pseudonyme"] == compte_a_supprimer:
+            del bd.bd_sys_auth[i]
             print(f"Le compte \"{compte_a_supprimer}\" a été effacé!")
             break
     else:
@@ -56,4 +56,4 @@ def delete_compte():
 
 # #-----test de la fonction delete_compte
 # delete_compte()
-# print(BD.BD_sys_auth)
+# print(bd.bd_sys_auth)

@@ -1,5 +1,5 @@
 
-def DemandeInfo():
+def demande_info():
    
     pseudonyme=  input("Pseudonyme: ")
 
