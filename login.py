@@ -29,11 +29,11 @@ def login() -> bool:
         return False
     
     #Recuperer infos user
-    infos = info_user.DemandeInfo()
+    pseudonyme, email, mot_de_passe = info_user.DemandeInfo()               #-DemandeInfo() retourne des variables au lieu d'un dictionnaire, changé en conséquences dans login() MG
 
     #Chercher si l'utilisateur existe    
     for user in BD.BD_sys_auth:
-        if infos['pseudonyme'] == user['pseudonyme'] and infos['email'] == user['email']:
+        if pseudonyme == user['pseudonyme'] and email == user['email']:     #-Changé infos["user"] et ["email"] par les variables. MG
             user_infos = user
             break
     else: 
@@ -41,7 +41,7 @@ def login() -> bool:
         return False
             
     #Tester si le mot de passe est bon
-    if infos["mot_de_passe"] == user_infos["mot_de_passe"]:
+    if mot_de_passe == user_infos["mot_de_passe"]:                          #-Changé infos["mpt_de_passe"] par la variable. MG
         print("Connexion réussie !")
         return True 
     else:
