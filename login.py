@@ -9,7 +9,7 @@ def login() -> bool:
     Tente d'authentifier un utilisateur.
 
     Comportement :
-    - Demande les informations de connexion via `info_user.DemandeInfo()`.
+    - Demande les informations de connexion via `info_user.demande_info()`.
     - Recherche l'utilisateur dans `bd.bd_sys_auth`.
     - Vérifie le mot de passe fourni.
     - Décrémente `nb_tentatives` en cas d'échec et bloque après épuisement.
@@ -30,7 +30,7 @@ def login() -> bool:
             return False
         
         #Recuperer infos user
-        pseudonyme, email, mot_de_passe = info_user.DemandeInfo()               #-DemandeInfo() retourne des variables au lieu d'un dictionnaire, changé en conséquences dans login() MG
+        pseudonyme, email, mot_de_passe = info_user.demande_info()               #-demande_info() retourne des variables au lieu d'un dictionnaire, changé en conséquences dans login() MG
 
         #Chercher si l'utilisateur existe    
         for user in bd.bd_sys_auth:

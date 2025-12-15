@@ -3,7 +3,7 @@ import info_user
 
 #création d'un compte
 def creer_compte():
-    pseudonyme, email, mot_de_passe = info_user.DemandeInfo()                       #les vérifications d'entrées sont déménagées dans DemandeInfo() MG
+    pseudonyme, email, mot_de_passe = info_user.demande_info()                       #les vérifications d'entrées sont déménagées dans demande_info() MG
     prenom = "Telesphore"                                                           #en attendant qu'on demande l'info dans info_user MG
     nom = "Tremblay"                                                                #en attendant qu'on demande l'info dans info_user MG
     return pseudonyme, email, mot_de_passe, prenom, nom

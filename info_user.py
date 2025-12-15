@@ -19,5 +19,5 @@ def demande_info():
  
     return pseudonyme, email, mot_de_passe
 
-# #-----test de DemandeInfo
-# DemandeInfo()
+# #-----test de demande_info
+# demande_info()
