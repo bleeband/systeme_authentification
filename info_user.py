@@ -2,9 +2,22 @@
 def DemandeInfo():
    
     pseudonyme=  input("Pseudonyme: ")
-    email = input("Email: ")
-    mot_de_passe = input("Mot de passe: ")
- 
-    return {"pseudonyme": pseudonyme, "email": email, "mot_de_passe": mot_de_passe}
 
+    #demande un email, si @ n'est pas présent, on redemande le email.
+    while True:
+        email = input("Email: ")
+        if "@" in email:                                    #ajout de la verif @ demande info MG
+            break
+        print("Adresse courriel invalide, doit contenir un @.")
+
+    #demande un mot de passe d'au moins 8 caractères, sinon on redemande.
+    while True:
+        mot_de_passe = input("Mot de passe: ")
+        if len(mot_de_passe) >= 8:                          #ajout de la verif 8 caracteres dans demande info MG
+            break
+        print("Mot de passe doit contenir un min de 8 caractères")
+ 
+    return pseudonyme, email, mot_de_passe
+
+# #-----test de DemandeInfo
 # DemandeInfo()
