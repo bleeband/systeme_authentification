@@ -1,6 +1,5 @@
-import BD
+import bd
 import gestion_comptes
-import info_user
 import login
 
 # SYSTEME D'AUTHENTIFICATION
@@ -19,11 +18,11 @@ while True:
 
     if choix == "1":
         print("AFFICHER LA LISTE DES UTILISATEURS\n")
-        BD.afficher_bd()                                         # TESTER OK  MAD
+        bd.afficher_bd()                                         # TESTER OK  MAD
 
     elif choix == "2":
         print("CREER UN NOUVEAU COMPTE\n")
-        gestion_comptes.ajout_compte_BD()                        # TESTER OK  MAD  (mais peux creer deux identiques)
+        gestion_comptes.ajout_compte_bd()                        # TESTER OK  MAD  (mais peux creer deux identiques)
 
     elif choix == "3":
         print("EFFACER UN COMPTE\n")
@@ -34,7 +33,7 @@ while True:
         gestion_comptes.reset_mdp()                             # TESTER OK MODIFICATION  MAD
 
     elif choix.lower() == "q":
-        BD.sauvegarder_bd()
+        bd.sauvegarder_bd()
         break
     
     else:

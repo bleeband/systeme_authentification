@@ -1,7 +1,7 @@
 # BASE DE DONNÉES (format DICT)      *** SysAuth - STOCKAGE ***
 # nom, prenom, email, username, mot_de_passe
 
-BD_sys_auth = [
+bd_sys_auth = [
     {"nom": "NOM", "prenom": "PRENOM", "email": "  EMAIL  ", "pseudonyme": "PSEUDONYME", "mot_de_passe": "MOT DE PASSE"},
     {"nom": "Dufour", "prenom": "Marc", "email": "bleeband@gmail.com", "pseudonyme": "bleeband@gmail.com", "mot_de_passe": "12345678"},
     {"nom": "M.", "prenom": "Pascale", "email": "Mercierp@outlook.com", "pseudonyme": "Mercierp@outlook.com", "mot_de_passe": "12345678"},
@@ -13,7 +13,7 @@ BD_sys_auth = [
 
 def afficher_bd():
 
-    for user in list(BD_sys_auth):
+    for user in list(bd_sys_auth):
         champs_cache = ["mot_de_passe"]
         safe_user = {}
         for key, value in user.items():
@@ -25,13 +25,13 @@ def afficher_bd():
 
 
 def sauvegarder_bd():
-    with open("BD.py", "r", encoding="utf-8") as f:
+    with open("bd.py", "r", encoding="utf-8") as f:
         lignes = f.readlines()
 
     nouveau_bloc = []
-    nouveau_bloc.append("BD_sys_auth = [\n")
+    nouveau_bloc.append("bd_sys_auth = [\n")
 
-    for compte in BD_sys_auth:
+    for compte in bd_sys_auth:
         ligne = (
             "    {"
             f"\"nom\": \"{compte['nom']}\", "
@@ -49,7 +49,7 @@ def sauvegarder_bd():
     dans_bloc = False
 
     for ligne in lignes:
-        if ligne.strip().startswith("BD_sys_auth = ["):
+        if ligne.strip().startswith("bd_sys_auth = ["):
             nouveau_fichier.extend(nouveau_bloc)
             dans_bloc = True
             continue
@@ -61,7 +61,7 @@ def sauvegarder_bd():
 
         nouveau_fichier.append(ligne)
 
-    with open("BD.py", "w", encoding="utf-8") as f:
+    with open("bd.py", "w", encoding="utf-8") as f:
         f.writelines(nouveau_fichier)
 
-    print("BD_sys_auth sauvegardée sans toucher au reste du fichier.")
+    print("bd_sys_auth sauvegardée sans toucher au reste du fichier.")
