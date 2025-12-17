@@ -1,6 +1,6 @@
 
 def demande_info():
-   
+
     pseudonyme=  input("Pseudonyme: ")
 
     #demande un email, si @ n'est pas présent, on redemande le email.
@@ -16,8 +16,14 @@ def demande_info():
         if len(mot_de_passe) >= 8:                          #ajout de la verif 8 caracteres dans demande info MG
             break
         print("Mot de passe doit contenir un min de 8 caractères")
- 
+
     return pseudonyme, email, mot_de_passe
+
+def demande_prenom_nom():
+    
+    prenom = input("Prénom: ")
+    nom = input("Nom: ")
+    return prenom, nom
 
 # #-----test de demande_info
 # demande_info()
