@@ -12,7 +12,14 @@ cd systeme_authentification
 ## 📖 Utilisation
 
 Lancer à partir de main.py
-Utiliser PSEUDONYME et MOT DE PASSE pour accéder au système. (Cette information ne serait pas présente si on déployait pour de vrai là!)
+
+Pour votre première connexion, utilisez le compte suivant:
+
+Username: Pseudo
+Email: default@mail.com
+Mot de passe: pseudo1234
+
+(Cette information ne serait pas présente si on déployait pour de vrai là!)
 
 ## 📁 Structure du projet
 
