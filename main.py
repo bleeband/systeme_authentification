@@ -13,7 +13,7 @@ if not login.login():
 # GESTION
 
 while True:
-    print("\n1.AFFICHER  2.CREER  3.EFFACER  4.RESET PWD")
+    print("\n1.AFFICHER  2.CREER  3.EFFACER  4.RESET PWD    5.SORTIR")
     choix = input("Veuiller faire un choix : ")
 
     if choix == "1":
@@ -32,7 +32,7 @@ while True:
         print("REINITIALISER VOTRE MOT DE PASSE\n")
         gestion_comptes.reset_mdp()                             # TESTER OK MODIFICATION  MAD
 
-    elif choix.lower() == "q":
+    elif choix.lower() == "5":
         bd.sauvegarder_bd()
         break
     
