@@ -3,6 +3,7 @@
 
 bd_sys_auth = [
     {"nom": "NOM", "prenom": "PRENOM", "email": "  EMAIL  ", "pseudonyme": "PSEUDONYME", "mot_de_passe": "MOT DE PASSE"},
+    {"nom": "Default", "prenom": "User", "email": "default@mail.com", "pseudonyme": "Pseudo", "mot_de_passe": "pseudo1234"},
     {"nom": "Dufour", "prenom": "Marc", "email": "bleeband@gmail.com", "pseudonyme": "bleeband@gmail.com", "mot_de_passe": "12345678"},
     {"nom": "M.", "prenom": "Pascale", "email": "Mercierp@outlook.com", "pseudonyme": "Mercierp@outlook.com", "mot_de_passe": "12345678"},
     {"nom": "G.", "prenom": "Mathieu", "email": "math.gosselin@gmail.com", "pseudonyme": "Grindy", "mot_de_passe": "12345678"},
